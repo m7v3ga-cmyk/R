@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإشراف ٤١٤ | نقل اثاث وعفش</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', sans-serif;
+            background: #0b0e14;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background-image: radial-gradient(ellipse at 50% 0%, #1a232f 0%, #0b0e14 70%);
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(199, 167, 107, 0.04) 0%, transparent 60%);
+            animation: ambientGlow 20s infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes ambientGlow {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(5%, 5%); }
+        }
+
+        .card {
+            position: relative;
+            z-index: 1;
+            max-width: 560px;
+            width: 100%;
+            background: linear-gradient(165deg, #f8f4ee 0%, #efe9e0 100%);
+            border-radius: 56px;
+            box-shadow: 
+                0 40px 80px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+                0 0 0 1px rgba(199, 167, 107, 0.15);
+            overflow: hidden;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, #151e2b 0%, #1f2a3a 100%);
+            padding: 32px 28px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #c7a76b, #e8d5a8, #c7a76b);
+            background-size: 200% 100%;
+            animation: shimmerBorder 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmerBorder {
+            0%, 100% { background-position: 0% 0%; }
+            50% { background-position: 100% 0%; }
+        }
+
+        .header .logo-icon {
+            font-size: 2.6rem;
+            color: #c7a76b;
+            margin-bottom: 4px;
+            display: inline-block;
+            filter: drop-shadow(0 4px 12px rgba(199, 167, 107, 0.3));
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #f5efe6;
+            letter-spacing: 3px;
+            line-height: 1.1;
+        }
+
+        .header h1 span {
+            color: #c7a76b;
+        }
+
+        .header .subtitle {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #a8b5c9;
+            letter-spacing: 3px;
+            margin-top: 2px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .header .badge {
+            display: inline-block;
+            background: rgba(199, 167, 107, 0.15);
+            border: 1px solid rgba(199, 167, 107, 0.2);
+            color: #e8d5a8;
+            padding: 5px 20px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-top: 12px;
+        }
+
+        .header .badge i {
+            margin-left: 8px;
+            color: #c7a76b;
+        }
+
+        /* ===== CONTENT ===== */
+        .content {
+            padding: 28px 26px 20px;
+        }
+
+        /* ===== وصف الخدمة ===== */
+        .service-description {
+            background: linear-gradient(135deg, #ffffff, #faf7f2);
+            border-radius: 28px;
+            padding: 20px 22px;
+            margin-bottom: 26px;
+            border: 1px solid rgba(199, 167, 107, 0.12);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-description::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #c7a76b, #e8d5a8);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .service-description .desc-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #1f2a3a;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-description .desc-title i {
+            color: #c7a76b;
+            font-size: 1.1rem;
+        }
+
+        .service-description p {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #2c3a4e;
+            line-height: 1.7;
+            padding-right: 6px;
+        }
+
+        .service-description .highlight {
+            color: #c7a76b;
+            font-weight: 700;
+        }
+
+        /* ===== المقر ===== */
+        .location-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #ffffff;
+            padding: 14px 20px;
+            border-radius: 60px;
+            margin-bottom: 24px;
+            border: 1px solid rgba(199, 167, 107, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s;
+        }
+
+        .location-box:hover {
+            border-color: rgba(199, 167, 107, 0.25);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .location-box i {
+            font-size: 1.4rem;
+            color: #c7a76b;
+            flex-shrink: 0;
+        }
+
+        .location-box .loc-text {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1f2a3a;
+        }
+
+        .location-box .loc-text span {
+            font-weight: 400;
+            color: #5a6a7e;
+        }
+
+        /* ===== الخدمات الإضافية ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 26px;
+        }
+
+        .service-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 14px 8px;
+            text-align: center;
+            border: 1px solid rgba(199, 167, 107, 0.08);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .service-item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(199, 167, 107, 0.25);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .service-item i {
+            font-size: 1.6rem;
+            color: #c7a76b;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .service-item .svc-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #2c3a4e;
+            letter-spacing: 0.3px;
+        }
+
+        /* ===== قسم المهندسين ===== */
+        .section-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .section-head .line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #c7a76b, transparent);
+        }
+
+        .section-head h2 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #1f2a3a;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .section-head i {
+            color: #c7a76b;
+            font-size: 1.1rem;
+        }
+
+        /* ===== بطاقات المهندسين ===== */
+        .engineer-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 20px 20px 22px;
+            margin-bottom: 18px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: all 0.35s ease;
+        }
+
+        .engineer-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .engineer-card:hover {
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07);
+            transform: translateY(-2px);
+        }
+
+        .engineer-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .engineer-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1f2a3a, #2c3a4e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c7a76b;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(31, 42, 58, 0.2);
+        }
+
+        .engineer-info {
+            flex: 1;
+        }
+
+        .engineer-info .name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #151e2b;
+            line-height: 1.2;
+        }
+
+        .engineer-info .role {
+            font-size: 0.75rem;
+            color: #7a8a9e;
+            font-weight: 400;
+        }
+
+        .engineer-info .role i {
+            color: #c7a76b;
+            margin-left: 4px;
+        }
+
+        /* ===== حقل الهاتف ===== */
+        .phone-field {
+            display: flex;
+            align-items: center;
+            background: #f5f1eb;
+            border-radius: 60px;
+            padding: 4px 6px 4px 16px;
+            border: 1px solid #e8dfd3;
+            transition: all 0.2s;
+        }
+
+        .phone-field:focus-within {
+            border-color: #c7a76b;
+            box-shadow: 0 0 0 3px rgba(199, 167, 107, 0.1);
+        }
+
+        .phone-field .icon-phone {
+            color: #7a8a9e;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+
+        .phone-field .number {
+            flex: 1;
+            font-family: 'Cairo', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #151e2b;
+            letter-spacing: 1.5px;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .phone-field .wa-tag {
+            background: #25D366;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .phone-field .wa-tag i {
+            font-size: 0.8rem;
+        }
+
+        /* ===== الأزرار ===== */
+        .action-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .action-row .btn {
+            flex: 1;
+            padding: 10px 14px;
+            border-radius: 60px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-call {
+            background: #1f2a3a;
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(31, 42, 58, 0.2);
+        }
+
+        .btn-call:hover {
+            background: #2c3a4e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(31, 42, 58, 0.25);
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: #ffffff;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.2);
+        }
+
+        .btn-wa:hover {
+            background: #1ebe5c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-wa i, .btn-call i {
+            font-size: 0.95rem;
+        }
+
+        /* ===== FOOTER ===== */
+        .card-footer {
+            padding: 16px 26px 20px;
+            border-top: 1px solid rgba(199, 167, 107, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .card-footer .brand {
+            font-weight: 800;
+            color: #1f2a3a;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        .card-footer .brand i {
+            color: #c7a76b;
+            margin-left: 6px;
+        }
+
+        .card-footer .trust {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .card-footer .trust span {
+            font-size: 0.75rem;
+            color: #4a5a6b;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card-footer .trust span i {
+            color: #c7a76b;
+            font-size: 0.85rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 520px) {
+            .header h1 { font-size: 2rem; }
+            .header { padding: 24px 18px 20px; }
+            .content { padding: 20px 16px 16px; }
+            .service-description { padding: 16px 16px; }
+            .service-description p { font-size: 0.9rem; }
+            .services-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+            .service-item { padding: 10px 4px; }
+            .service-item i { font-size: 1.3rem; }
+            .service-item .svc-label { font-size: 0.65rem; }
+            .engineer-card { padding: 16px 14px 18px; }
+            .phone-field .number { font-size: 0.95rem; }
+            .phone-field .wa-tag { font-size: 0.55rem; padding: 3px 10px; }
+            .action-row .btn { font-size: 0.75rem; padding: 8px 10px; }
+            .location-box { padding: 10px 14px; }
+            .location-box .loc-text { font-size: 0.8rem; }
+            .card-footer { flex-direction: column; align-items: center; text-align: center; }
+            .card-footer .trust { justify-content: center; }
+            .engineer-avatar { width: 40px; height: 40px; font-size: 1.2rem; }
+            .engineer-info .name { font-size: 1rem; }
+        }
+
+        @media (max-width: 380px) {
+            .phone-field { flex-wrap: wrap; gap: 6px; padding: 6px 10px; }
+            .phone-field .number { text-align: center; width: 100%; }
+            .phone-field .wa-tag { margin-right: auto; }
+            .services-grid { grid-template-columns: repeat(3, 1fr); gap: 4px; }
+            .service-item { padding: 8px 2px; }
+            .service-item i { font-size: 1.1rem; }
+            .service-item .svc-label { font-size: 0.6rem; }
+        }
+
+        /* ===== ANIMATION ===== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #c7a76b; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+
+        <!-- ===== HEADER ===== -->
+        <div class="header">
+            <div class="logo-icon"><i class="fas fa-truck-moving"></i></div>
+            <h1>الإشراف <span>٤١٤</span></h1>
+            <div class="subtitle">نقل اثاث · عفش · فك وتركيب</div>
+            <div class="badge">
+                <i class="fas fa-crown"></i> خدمة احترافية عالية الجودة
+            </div>
+        </div>
+
+        <!-- ===== CONTENT ===== -->
+        <div class="content">
+
+            <!-- ===== وصف الخدمة ===== -->
+            <div class="service-description">
+                <div class="desc-title">
+                    <i class="fas fa-shield-alt"></i>
+                    نقل آمن للاثاث والعفش المنزلي
+                </div>
+                <p>
+                    نقدم خدمات <span class="highlight">نقل آمن</span> للأثاث والعفش المنزلي 
+                    مع فريق متكامل من <span class="highlight">النجارين</span>، 
+                    <span class="highlight">فنيي التكييف</span>، 
+                    و <span class="highlight">الكهربائيين</span> 
+                    لضمان فك وتركيب دقيق واحترافي.
+                </p>
+            </div>
+
+            <!-- ===== المقر ===== -->
+            <div class="location-box">
+                <i class="fas fa-location-dot"></i>
+                <div class="loc-text">
+                    المقر الرئيسي <span>·</span> القاهرة <span>·</span> مدينة نصر <span>·</span> الحي العاشر
+                </div>
+            </div>
+
+            <!-- ===== الخدمات الإضافية ===== -->
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-hammer"></i>
+                    <span class="svc-label">نجارين</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-snowflake"></i>
+                    <span class="svc-label">فني تكيف</span>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-bolt"></i>
+                    <span class="svc-label">كهربائي</span>
+                </div>
+            </div>
+
+            <!-- ===== المهندسون ===== -->
+            <div class="section-head">
+                <i class="fas fa-user-shield"></i>
+                <h2>المهندسون المشرفون</h2>
+                <div class="line"></div>
+            </div>
+
+            <!-- المهندس الأول -->
+            <div class="engineer-card">
+                <div class="engineer-header">
+                    <div class="engineer-avatar">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="engineer-info">
+                        <div class="name">م. محمود مدحت</div>
+                        <div class="role"><i class="fas fa-star"></i> مشرف أول</div>
+                    </div>
+                </div>
+
+                <div class="phone-field">
+                    <span class="icon-phone"><i class="fas fa-phone-alt"></i></span>
+                    <span class="number" dir="ltr">01116870575</span>
+                    <span class="wa-tag"><i class="fab fa-whatsapp"></i> واتساب</span>
+                </div>
+
+                <div class="action-row">
+                    <a href="tel:01116870575" class="btn btn-call">
+                        <i class="fas fa-phone"></i> اتصال
+                    </a>
+                    <a href="https://wa.me/201116870575?text=السلام%20عليكم%20...%20أرغب%20في%20خدمة%20نقل%20الأثاث%20(الإشراف%20414)" target="_blank" class="btn btn-wa">
+                        <i class="fab fa-whatsapp"></i> واتساب
+                    </a>
+                </div>
+            </div>
+
+            <!-- المهندس الثاني -->
+            <div class="engineer-card">
+                <div class="engineer-header">
+                    <div class="engineer-avatar">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="engineer-info">
+                        <div class="name">م. محمود أحمد</div>
+                        <div class="role"><i class="fas fa-star"></i> مشرف ثاني</div>
+                    </div>
+                </div>
+
+                <div class="phone-field">
+                    <span class="icon-phone"><i class="fas fa-phone-alt"></i></span>
+                    <span class="number" dir="ltr">01110758232</span>
+                    <span class="wa-tag"><i class="fab fa-whatsapp"></i> واتساب</span>
+                </div>
+
+                <div class="action-row">
+                    <a href="tel:01110758232" class="btn btn-call">
+                        <i class="fas fa-phone"></i> اتصال
+                    </a>
+                    <a href="https://wa.me/201110758232?text=السلام%20عليكم%20...%20أرغب%20في%20خدمة%20نقل%20الأثاث%20(الإشراف%20414)" target="_blank" class="btn btn-wa">
+                        <i class="fab fa-whatsapp"></i> واتساب
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <div class="card-footer">
+            <div class="brand">
+                <i class="fas fa-phone-volume"></i> الإشراف ٤١٤
+            </div>
+            <div class="trust">
+                <span><i class="fas fa-clock"></i> ٢٤ ساعة</span>
+                <span><i class="fas fa-shield-alt"></i> ضمان شامل</span>
+                <span><i class="fas fa-tools"></i> فك وتركيب</span>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
