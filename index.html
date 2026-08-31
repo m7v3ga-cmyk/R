@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>الإشراف ٤١٤ | نقل اثاث وعفش</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
@@ -551,11 +551,16 @@
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #c7a76b; border-radius: 10px; }
+
+        /* تحسين اللمس للأجهزة اللوحية */
+        .btn, .service-item, .engineer-card, .location-box {
+            -webkit-tap-highlight-color: transparent;
+        }
     </style>
 </head>
 <body>
 
-    <div class="card">
+    <div class="card" id="mainCard">
 
         <!-- ===== HEADER ===== -->
         <div class="header">
@@ -617,7 +622,7 @@
             </div>
 
             <!-- المهندس الأول -->
-            <div class="engineer-card">
+            <div class="engineer-card" data-engineer="1">
                 <div class="engineer-header">
                     <div class="engineer-avatar">
                         <i class="fas fa-hard-hat"></i>
@@ -645,7 +650,7 @@
             </div>
 
             <!-- المهندس الثاني -->
-            <div class="engineer-card">
+            <div class="engineer-card" data-engineer="2">
                 <div class="engineer-header">
                     <div class="engineer-avatar">
                         <i class="fas fa-hard-hat"></i>
@@ -687,6 +692,80 @@
         </div>
 
     </div>
+
+    <!-- ===== جافا سكريبت خفيف ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // تحسين تجربة النقر على الأزرار في الموبايل (تغذية راجعة بسيطة)
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('touchstart', function(e) {
+                    // تأثير بسيط عند اللمس (بدون تعارض مع النقر)
+                    this.style.transform = 'scale(0.96)';
+                }, { passive: true });
+
+                btn.addEventListener('touchend', function(e) {
+                    this.style.transform = '';
+                }, { passive: true });
+
+                // لمنع أي سلوك غير مرغوب فيه
+                btn.addEventListener('click', function(e) {
+                    // لا نتدخل في الرابط الأصلي
+                });
+            });
+
+            // إضافة تأثير بسيط عند تمرير الماوس على البطاقات (للسطح المكتب)
+            const cards = document.querySelectorAll('.engineer-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.35s ease';
+                });
+            });
+
+            // إظهار رسالة ترحيبية في الكونسول (للمطورين)
+            console.log('الإشراف ٤١٤ | نقل اثاث وعفش - تم تحميل الصفحة بنجاح');
+
+            // تحسين إمكانية الوصول: إضافة خاصية aria-label للأزرار التي تحتوي على أيقونات فقط (لا يوجد)
+            // جميع الأزرار تحتوي على نص.
+
+            // جعل الروابط تفتح في نفس النافذة (باستثناء واتساب يفتح في نافذة جديدة)
+            const waLinks = document.querySelectorAll('.btn-wa');
+            waLinks.forEach(link => {
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            });
+
+            // تحسين للهواتف: إزالة تأخير النقر
+            const allInteractive = document.querySelectorAll('.btn, .service-item, .engineer-card, .location-box');
+            allInteractive.forEach(el => {
+                el.style.touchAction = 'manipulation';
+            });
+
+            // إضافة تفاعل بسيط: عند النقر على بطاقة المهندس يتم تمييزها (تغذية راجعة)
+            const engineerCards = document.querySelectorAll('.engineer-card');
+            engineerCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // نتأكد أن النقر ليس على زر أو رابط
+                    if (e.target.closest('.btn') || e.target.closest('a')) return;
+                    // إضافة تأثير وميض بسيط
+                    this.style.transition = 'box-shadow 0.15s ease';
+                    this.style.boxShadow = '0 0 0 3px rgba(199,167,107,0.3), 0 8px 24px rgba(0,0,0,0.05)';
+                    setTimeout(() => {
+                        this.style.boxShadow = '';
+                    }, 300);
+                });
+            });
+
+            // تحسين أداء الرسوم المتحركة
+            const card = document.getElementById('mainCard');
+            if (card) {
+                card.style.willChange = 'transform';
+            }
+
+        })();
+    </script>
 
 </body>
 </html>
